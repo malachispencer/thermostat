@@ -82,4 +82,13 @@ describe('Thermostat', () => {
       expect(thermostat.maxTemperature).toEqual(32);
     });
   });
+
+  describe('#reset', () => {
+    it('resets the temperature to 20', () => {
+      thermostat.down();
+      thermostat.down();
+      thermostat.reset();
+      expect(thermostat.getCurrentTemperature()).toEqual(20);
+    });
+  });
 });
