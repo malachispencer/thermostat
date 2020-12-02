@@ -44,5 +44,11 @@ describe('Thermostat', () => {
       thermostat.togglePowerSaving();
       expect(thermostat.getCurrentMode()).toBe('Normal');
     });
+
+    it(`turns on powerSaving if it's currently off`, () => {
+      thermostat.togglePowerSaving();
+      thermostat.togglePowerSaving();
+      expect(thermostat.getCurrentMode()).toBe('Power Saving');
+    });
   });
 });
