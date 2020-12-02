@@ -40,9 +40,9 @@ describe('Thermostat', () => {
   });
 
   describe('#togglePowerSaving', () => {
-    it('turns powerSaving to false if true', () => {
+    it(`turns off powerSaving if it's currently on`, () => {
       thermostat.togglePowerSaving();
-      expect(thermostat.getMode()).toBe('Power Saving');
+      expect(thermostat.getCurrentMode()).toBe('Normal');
     });
   });
 });

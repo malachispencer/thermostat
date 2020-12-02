@@ -20,6 +20,14 @@ Thermostat.prototype.down = function() {
   this.temperature--;
 };
 
+Thermostat.prototype.togglePowerSaving = function() {
+  this.powerSaving = !this.powerSaving;
+};
+
+Thermostat.prototype.getCurrentMode = function() {
+  return this.powerSaving ? 'Power Saving' : 'Normal';
+};
+
 Thermostat.prototype.minimumReached = function() {
   return this.temperature === this.minimumTemperature;
 };
