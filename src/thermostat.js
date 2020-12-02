@@ -1,13 +1,9 @@
 function Thermostat() {
   this.temperature = 20;
   this.minTemperature = 10;
-  this.maxTemperature = 25;
   this.powerSaving = true;
+  this.maxTemperature = 25;
 }
-
-Thermostat.prototype.getCurrentTemperature = function() {
-  return this.temperature;
-};
 
 Thermostat.prototype.up = function() {
   if (this.maximumReached()) {
@@ -35,8 +31,22 @@ Thermostat.prototype.togglePowerSaving = function() {
   return `Max temperature is now ${this.maxTemperature} degrees.`;
 };
 
+Thermostat.prototype.getCurrentTemperature = function() {
+  return this.temperature;
+};
+
 Thermostat.prototype.getCurrentMode = function() {
   return this.powerSaving ? 'Power Saving' : 'Normal';
+};
+
+Thermostat.prototype.getCurrentUsage = function() {
+  if (this.temperature < 18) {
+    return 'Low Usage';
+  } else if (this.temperature >= 18 && this.temperature <= 25) {
+    return 'Medium Usage';
+  } else {
+    return 'High Usage';
+  }
 };
 
 Thermostat.prototype.maximumReached = function() {
