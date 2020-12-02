@@ -1,6 +1,6 @@
 # Thermostat
 
-Here we build a Thermostat web application in JavaScript, jQuery and Node.js.
+Here we build a Thermostat web application in JavaScript, jQuery, Node.js, HTML and CSS.
 
 ### Setting Up Jasmine For Node.js
 
