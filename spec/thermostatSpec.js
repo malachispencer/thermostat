@@ -11,6 +11,10 @@ describe('Thermostat', () => {
     it('sets the temperature to 20 by default', () => {
       expect(thermostat.getCurrentTemperature()).toEqual(20);
     });
+
+    it('has power saving on by default', () => {
+      expect(thermostat.powerSaving).toEqual(true);
+    });
   });
 
   describe('#up', () => {
