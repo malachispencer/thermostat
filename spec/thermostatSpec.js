@@ -52,9 +52,9 @@ describe('Thermostat', () => {
     });
 
     it('calls the setMaximumTemperature function', () => {
-      spyOn(thermostat, 'setMaximumTemperature');
+      spyOn(thermostat, 'adjustMaxTemperature');
       thermostat.togglePowerSaving();
-      expect(thermostat.setMaximumTemperature).toHaveBeenCalled();
+      expect(thermostat.adjustMaxTemperature).toHaveBeenCalled();
     });
   });
 });
