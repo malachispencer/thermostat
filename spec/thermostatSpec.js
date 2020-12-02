@@ -51,10 +51,23 @@ describe('Thermostat', () => {
       expect(thermostat.getCurrentMode()).toBe('Power Saving');
     });
 
-    it('calls the setMaximumTemperature function', () => {
+    it('calls the adjustMaxTemperature function', () => {
       spyOn(thermostat, 'adjustMaxTemperature');
       thermostat.togglePowerSaving();
       expect(thermostat.adjustMaxTemperature).toHaveBeenCalled();
+    });
+  });
+
+  describe('#adjustMaxTemperature', () => {
+    it('sets maxTemperature to 25 if powerSaving is true', () => {
+      thermostat.togglePowerSaving();
+      thermostat.togglePowerSaving();
+      expect(thermostat.maxTemperature).toEqual(25);
+    });
+
+    it('sets maxTemperature to 32 if powerSaving is false', () => {
+      thermostat.togglePowerSaving();
+      expect(thermostat.maxTemperature).toEqual(32);
     });
   });
 });
