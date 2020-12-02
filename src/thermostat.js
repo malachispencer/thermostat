@@ -47,11 +47,11 @@ Thermostat.prototype.getCurrentMode = function() {
 
 Thermostat.prototype.getCurrentEnergyUsage = function() {
   if (this.temperature < this.MEDIUM_USAGE_LOWER_BOUND) {
-    return 'Low Usage';
+    return 'Low';
   } else if (this.temperature >= this.MEDIUM_USAGE_LOWER_BOUND && this.temperature <= this.MEDIUM_USAGE_UPPER_BOUND) {
-    return 'Medium Usage';
+    return 'Medium';
   } else {
-    return 'High Usage';
+    return 'High';
   }
 };
 
