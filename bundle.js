@@ -10874,14 +10874,34 @@ return jQuery;
 
 },{}],2:[function(require,module,exports){
 const $ = require('jquery');
-const { Thermostat } = require('../src/thermostat');
+const { Thermostat } = require('../src/thermostat.js');
 
 $(document).ready(function() {
   let thermostat = new Thermostat();
 
   $('#temperature').text(thermostat.getCurrentTemperature());
+
+  $('#increase-temp-btn').click(() => {
+    thermostat.up();
+    $('#temperature').text(thermostat.getCurrentTemperature());
+  });
+
+  $('#decrease-temp-btn').click(() => {
+    thermostat.down();
+    $('#temperature').text(thermostat.getCurrentTemperature());
+  });
+
+  $('#reset-temp-btn').click(() => {
+    thermostat.reset();
+    $('#temperature').text(thermostat.getCurrentTemperature());
+  });
+
+  $('#toggle-power-saving-btn').click(() => {
+    thermostat.togglePowerSaving();
+    $('#temperature').text(thermostat.getCurrentTemperature());
+  });
 });
-},{"../src/thermostat":3,"jquery":1}],3:[function(require,module,exports){
+},{"../src/thermostat.js":3,"jquery":1}],3:[function(require,module,exports){
 function Thermostat() {
   this.DEFAULT_TEMPERATURE = 20;
   this.MIN_TEMPERATURE = 10;
