@@ -65,6 +65,10 @@ Thermostat.prototype.minimumReached = function() {
 
 Thermostat.prototype.adjustMaxTemperature = function() {
   this.maxTemperature = this.powerSaving ? this.POWER_SAVING_MAX_TEMPERATURE : this.NORMAL_MAX_TEMPERATURE;
+
+  if (this.temperature > this.maxTemperature) {
+    this.temperature = this.maxTemperature;
+  } 
 };
 
 module.exports = { Thermostat };

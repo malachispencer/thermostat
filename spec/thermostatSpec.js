@@ -81,6 +81,17 @@ describe('Thermostat', () => {
       thermostat.togglePowerSaving();
       expect(thermostat.maxTemperature).toEqual(32);
     });
+
+    it(`sets temperature to 25 if it was above that before toggle`, () => {
+      thermostat.togglePowerSaving();
+
+      for (let i = 1; i <= 12; i++) {
+        thermostat.up();
+      }
+
+      thermostat.togglePowerSaving();
+      expect(thermostat.getCurrentTemperature()).toEqual(25);
+    });
   });
 
   describe('#reset', () => {
