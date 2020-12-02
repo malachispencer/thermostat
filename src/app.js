@@ -4,10 +4,14 @@ function Thermostat() {
 
 Thermostat.prototype.getCurrentTemperature = function() {
   return this.temperature;
-}
+};
 
 Thermostat.prototype.up = function() {
-  this.temperature++
+  this.temperature++;
 };
+
+Thermostat.prototype.down = function() {
+  this.temperature--;
+}
 
 module.exports = { Thermostat };
