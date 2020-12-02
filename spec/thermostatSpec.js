@@ -25,5 +25,13 @@ describe('Thermostat', () => {
       thermostat.down();
       expect(thermostat.getCurrentTemperature()).toEqual(19);
     });
+
+    it('throws an error if you try to go below 10 degrees', () => {
+      for (let i = 1; i <= 10; i ++) {
+        thermostat.down();
+      }
+
+      expect(function() { thermostat.down() }).toThrow('Cannot subceed minimum temperature.');
+    });
   });
 });
