@@ -38,4 +38,11 @@ describe('Thermostat', () => {
       expect(function() { thermostat.down() }).toThrow('Cannot subceed minimum temperature.');
     });
   });
+
+  describe('#togglePowerSaving', () => {
+    it('turns powerSaving to false if true', () => {
+      thermostat.togglePowerSaving();
+      expect(thermostat.getMode()).toBe('Power Saving');
+    });
+  });
 });
