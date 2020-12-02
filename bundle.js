@@ -10881,31 +10881,25 @@ $(document).ready(function() {
 
   updateTemperature();
   displayCurrentMode();
-  displayCurrentEnergyUsage()
+  displayCurrentEnergyUsage();
 
   $('#increase-temp-btn').click(() => {
     thermostat.up();
-    updateTemperature();
-    displayCurrentMode();
-    displayCurrentEnergyUsage();
   });
 
   $('#decrease-temp-btn').click(() => {
     thermostat.down();
-    updateTemperature();
-    displayCurrentMode();
-    displayCurrentEnergyUsage();
   });
 
   $('#reset-temp-btn').click(() => {
     thermostat.reset();
-    updateTemperature();
-    displayCurrentMode();
-    displayCurrentEnergyUsage();
   });
 
   $('#toggle-power-saving-btn').click(() => {
     thermostat.togglePowerSaving();
+  });
+
+  $(window).click(() => {
     updateTemperature();
     displayCurrentMode();
     displayCurrentEnergyUsage();
