@@ -1,8 +1,14 @@
 function Thermostat() {
-  this.temperature = 20;
-  this.minTemperature = 10;
+  this.DEFAULT_TEMPERATURE = 20;
+  this.MIN_TEMPERATURE = 10;
+  this.POWER_SAVING_MAX_TEMPERATURE = 25;
+  this.NORMAL_MAX_TEMPERATURE = 32;
+  this.MEDIUM_USAGE_LOWER_BOUND = 18;
+  this.MEDIUM_USAGE_UPPER_BOUND = 25;
+
+  this.temperature = this.DEFAULT_TEMPERATURE;
   this.powerSaving = true;
-  this.maxTemperature = 25;
+  this.maxTemperature = this.POWER_SAVING_MAX_TEMPERATURE;
 }
 
 Thermostat.prototype.up = function() {
@@ -22,7 +28,7 @@ Thermostat.prototype.down = function() {
 };
 
 Thermostat.prototype.reset = function() {
-  this.temperature = 20;
+  this.temperature = this.DEFAULT_TEMPERATURE;
 };
 
 Thermostat.prototype.togglePowerSaving = function() {
@@ -40,9 +46,9 @@ Thermostat.prototype.getCurrentMode = function() {
 };
 
 Thermostat.prototype.getCurrentEnergyUsage = function() {
-  if (this.temperature < 18) {
+  if (this.temperature < this.MEDIUM_USAGE_LOWER_BOUND) {
     return 'Low Usage';
-  } else if (this.temperature >= 18 && this.temperature <= 25) {
+  } else if (this.temperature >= this.MEDIUM_USAGE_LOWER_BOUND && this.temperature <= this.MEDIUM_USAGE_UPPER_BOUND) {
     return 'Medium Usage';
   } else {
     return 'High Usage';
@@ -54,11 +60,11 @@ Thermostat.prototype.maximumReached = function() {
 };
 
 Thermostat.prototype.minimumReached = function() {
-  return this.temperature === this.minTemperature;
+  return this.temperature === this.MIN_TEMPERATURE;
 };
 
 Thermostat.prototype.adjustMaxTemperature = function() {
-  this.maxTemperature = this.powerSaving ? 25 : 32;
+  this.maxTemperature = this.powerSaving ? this.POWER_SAVING_MAX_TEMPERATURE : this.NORMAL_MAX_TEMPERATURE;
 };
 
 module.exports = { Thermostat };
