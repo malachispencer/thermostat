@@ -6,8 +6,8 @@
   "scripts": {
     "test-init": "./node_modules/jasmine/bin/jasmine.js init",
     "test": "./node_modules/jasmine/bin/jasmine.js",
-    "build": "browserify ./public/main.js -o bundle.js",
-    "watch": "watchify ./public/main.js -o bundle.js"
+    "build": "browserify ./public/script.js -o bundle.js",
+    "watch": "watchify ./public/script.js -o bundle.js"
   },
   "author": "Malachi Spencer",
   "license": "ISC",
