@@ -1,4 +1,4 @@
-const { Thermostat } = require('../src/app.js');
+const { Thermostat } = require('../src/thermostat.js');
 
 describe('Thermostat', () => {
   let thermostat;
