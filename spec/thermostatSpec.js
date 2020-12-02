@@ -64,6 +64,10 @@ describe('Thermostat', () => {
       thermostat.togglePowerSaving();
       expect(thermostat.adjustMaxTemperature).toHaveBeenCalled();
     });
+
+    it('returns a confirmation of the new maxTemperature', () => {
+      expect(thermostat.togglePowerSaving()).toEqual('Max temperature is now 32 degrees.');
+    });
   });
 
   describe('#adjustMaxTemperature', () => {

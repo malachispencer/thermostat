@@ -28,6 +28,7 @@ Thermostat.prototype.down = function() {
 Thermostat.prototype.togglePowerSaving = function() {
   this.powerSaving = !this.powerSaving;
   this.adjustMaxTemperature();
+  return `Max temperature is now ${this.maxTemperature} degrees.`;
 };
 
 Thermostat.prototype.getCurrentMode = function() {
@@ -44,6 +45,6 @@ Thermostat.prototype.minimumReached = function() {
 
 Thermostat.prototype.adjustMaxTemperature = function() {
   this.maxTemperature = this.powerSaving ? 25 : 32;
-}
+};
 
 module.exports = { Thermostat };
