@@ -22,6 +22,14 @@ describe('Thermostat', () => {
       thermostat.up();
       expect(thermostat.getCurrentTemperature()).toEqual(21);
     });
+
+    it('throws an exception if you try to go above maxTemperature', () => {
+      for (let i = 1; i <= 5; i++) {
+        thermostat.up();
+      }
+      
+      expect(function() { thermostat.up() }).toThrow('Cannot exceed maximum temperature.');
+    });
   });
 
   describe('#down', () => {
@@ -30,7 +38,7 @@ describe('Thermostat', () => {
       expect(thermostat.getCurrentTemperature()).toEqual(19);
     });
 
-    it('throws an error if you try to go below 10 degrees', () => {
+    it('throws an exception if you try to go below 10 degrees', () => {
       for (let i = 1; i <= 10; i ++) {
         thermostat.down();
       }

@@ -10,6 +10,10 @@ Thermostat.prototype.getCurrentTemperature = function() {
 };
 
 Thermostat.prototype.up = function() {
+  if (this.maximumReached()) {
+    throw 'Cannot exceed maximum temperature.';
+  }
+
   this.temperature++;
 };
 
@@ -28,6 +32,10 @@ Thermostat.prototype.togglePowerSaving = function() {
 
 Thermostat.prototype.getCurrentMode = function() {
   return this.powerSaving ? 'Power Saving' : 'Normal';
+};
+
+Thermostat.prototype.maximumReached = function() {
+  return this.temperature === this.maxTemperature;
 };
 
 Thermostat.prototype.minimumReached = function() {
