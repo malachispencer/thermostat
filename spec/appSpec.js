@@ -7,16 +7,16 @@ describe('Thermostat', () => {
     thermostat = new Thermostat();
   });
 
-  describe('constructor', () => {
+  describe('#constructor', () => {
     it('sets the temperature to 20 by default', () => {
-      expect(thermostat.temperature).toEqual(20);
+      expect(thermostat.getCurrentTemperature()).toEqual(20);
     });
   });
 
-  describe('up', () => {
+  describe('#up', () => {
     it('increases the temperature by 1', () => {
       thermostat.up();
-      expect(thermostat.currentTemperature()).toEqual(21);
+      expect(thermostat.getCurrentTemperature()).toEqual(21);
     });
   });
 });
