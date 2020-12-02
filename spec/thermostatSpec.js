@@ -92,17 +92,17 @@ describe('Thermostat', () => {
     });
   });
 
-  describe('#getCurrentUsage', () => {
+  describe('#getCurrentEnergyUsage', () => {
     it(`returns 'low usage' if temperature is less than 18`, () => {
       for (let i = 1; i <= 3; i++) {
         thermostat.down();
       }
 
-      expect(thermostat.getCurrentUsage()).toEqual('Low Usage');
+      expect(thermostat.getCurrentEnergyUsage()).toEqual('Low Usage');
     });
 
     it(`returns 'medium usage' if temperature is between 18 and 25`, () => {
-      expect(thermostat.getCurrentUsage()).toEqual('Medium Usage');
+      expect(thermostat.getCurrentEnergyUsage()).toEqual('Medium Usage');
     });
 
     it(`returns 'high usage' if temperature is above 25`, () => {
@@ -112,7 +112,7 @@ describe('Thermostat', () => {
         thermostat.up();
       }
 
-      expect(thermostat.getCurrentUsage()).toEqual('High Usage');
+      expect(thermostat.getCurrentEnergyUsage()).toEqual('High Usage');
     });
   });
 });

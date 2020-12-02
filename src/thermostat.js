@@ -39,7 +39,7 @@ Thermostat.prototype.getCurrentMode = function() {
   return this.powerSaving ? 'Power Saving' : 'Normal';
 };
 
-Thermostat.prototype.getCurrentUsage = function() {
+Thermostat.prototype.getCurrentEnergyUsage = function() {
   if (this.temperature < 18) {
     return 'Low Usage';
   } else if (this.temperature >= 18 && this.temperature <= 25) {
