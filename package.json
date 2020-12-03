@@ -6,17 +6,20 @@
   "scripts": {
     "test-init": "./node_modules/jasmine/bin/jasmine.js init",
     "test": "./node_modules/jasmine/bin/jasmine.js",
-    "build": "browserify ./public/script.js -o bundle.js",
-    "watch": "watchify ./public/script.js -o bundle.js"
+    "build": "browserify ./public/script.js -o ./public/bundle.js",
+    "watch": "watchify ./public/script.js -o ./public/bundle.js",
+    "dev": "nodemon app.js"
   },
   "author": "Malachi Spencer",
   "license": "ISC",
   "devDependencies": {
     "browserify": "^17.0.0",
     "jasmine": "^3.6.3",
+    "nodemon": "^2.0.6",
     "watchify": "^3.11.1"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "jquery": "^3.5.1"
   }
 }

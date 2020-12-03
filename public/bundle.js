@@ -10921,7 +10921,7 @@ $(document).ready(function() {
   function displayWeather() {
     let url = 'http://api.openweathermap.org/data/2.5/weather?q=' + 'london';
     const units = '&units=metric';
-    const token = '&appid=0e561352ce4a79e783c819582f08f55b';
+    const token = '';
 
     $.get(url + units + token, (data) => {
       let temperature = Math.round(data.main.temp);
