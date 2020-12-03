@@ -8,8 +8,13 @@ $(document).ready(function() {
   displayCurrentMode();
   displayCurrentEnergyUsage();
 
-  $('input:radio[name=weather-location]').change(() => {
-    console.log($(':checked')[0].value)
+  $('input:radio[name=weather-location]').change((e) => {
+    const object = { city: e.target.value }
+
+    $.ajax('/weather', {
+      method: 'POST',
+      data: object
+    });
   });
 
   $('#increase-temp-btn').click(() => {
