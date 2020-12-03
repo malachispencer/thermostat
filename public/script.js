@@ -8,6 +8,10 @@ $(document).ready(function() {
   displayCurrentMode();
   displayCurrentEnergyUsage();
 
+  //$.get(`http://api.openweathermap.org/data/2.5/weather?q=london&appid=${}`, (data) => {
+    //$('#weather').html(`London Weather: ${data}`);
+  //});
+
   $('#increase-temp-btn').click(() => {
     thermostat.up();
   });
