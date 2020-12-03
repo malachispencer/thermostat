@@ -10883,6 +10883,10 @@ $(document).ready(function() {
   displayCurrentMode();
   displayCurrentEnergyUsage();
 
+  $('input:radio[name=weather-location]').change(() => {
+    console.log($(':checked')[0].value)
+  });
+
   $('#increase-temp-btn').click(() => {
     thermostat.up();
   });
