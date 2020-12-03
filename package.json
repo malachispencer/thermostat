@@ -4,6 +4,7 @@
   "description": "Simple web app using JavaScript",
   "main": "thermostat.js",
   "scripts": {
+    "start": "node app.js",
     "test-init": "./node_modules/jasmine/bin/jasmine.js init",
     "test": "./node_modules/jasmine/bin/jasmine.js",
     "build": "browserify ./public/script.js -o ./public/bundle.js",
