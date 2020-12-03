@@ -7,7 +7,6 @@ $(document).ready(function() {
   updateTemperature();
   displayCurrentMode();
   displayCurrentEnergyUsage();
-  displayWeather();
 
   $('#increase-temp-btn').click(() => {
     thermostat.up();
@@ -41,16 +40,5 @@ $(document).ready(function() {
 
   function displayCurrentEnergyUsage() {
     $('#current-usage').html(`Energy Usage: ${thermostat.getCurrentEnergyUsage()}`);
-  }
-
-  function displayWeather() {
-    let url = 'http://api.openweathermap.org/data/2.5/weather?q=' + 'london';
-    const units = '&units=metric';
-    const token = '';
-
-    $.get(url + units + token, (data) => {
-      let temperature = Math.round(data.main.temp);
-      $('#weather').text(`London Weather: ${temperature}°C`);
-    });
   }
 });
