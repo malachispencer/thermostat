@@ -1,6 +1,6 @@
 # Thermostat
 
-Thermostat web application built in JavaScript, Node.js, Express.js, jQuery, HTML, CSS and Bootstrap.
+Thermostat web application built in JavaScript, Node.js, Express.js, jQuery, HTML and Bootstrap.
 
 ### Setting Up Jasmine For Node.js
 
