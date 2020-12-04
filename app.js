@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const request = require('request');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const axios = require('axios').default
 
 const port = process.env.PORT || 3000;
 
@@ -12,21 +12,24 @@ app.listen(port, () => {
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+app.get('/', (request, response) => {
+  response.sendFile(__dirname + '/public/index.html');
 });
 
-// app.post('/weather', (req, res) => {
-//   const url = `http://api.openweathermap.org/data/2.5/weather?q=${req.body.city}`;
-//   const units = '&units=metric';
-//   const token = `&appid=${process.env.OPEN_WEATHER_MAP_KEY}`;
+app.post('/weather', (request, response) => {
+  const url = `http://api.openweathermap.org/data/2.5/weather?q=${request.body.city}`;
+  const units = '&units=metric';
+  const token = `&appid=${process.env.OPEN_WEATHER_MAP_KEY}`;
 
-//   request(url + units + token, (err, res, body) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       let data = JSON.parse(body);
-//       data.main.temp
-//     }
-//   });
-// });
+  axios({
+    method: 'get',
+    url: url + units + token
+  })
+    .then(res => {
+      let data = res.data.main.temp.toString();
+      response.send(data);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});

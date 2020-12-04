@@ -14,7 +14,10 @@ $(document).ready(function() {
     $.ajax('/weather', {
       method: 'POST',
       data: object
-    });
+    })
+    .done(data => {
+      console.log(data);
+    })
   });
 
   $('#increase-temp-btn').click(() => {
