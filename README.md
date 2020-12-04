@@ -46,7 +46,7 @@ Here we build a Thermostat web application in JavaScript, Node.js, Express.js, j
 
 In order to process the API request securely, we must perform it on the server side. In the application code we do this by sending a get request - using the jQuery ajax() function - to the server, passing the city name along in the url params. On the server we make the API get request inside of the get route - using Axios - then we send the response back to the client.
 This is the conventional and recommended way to perform this API request, however, we can also do it with a post request, as
-outlined below.
+illustrated below.
 
 #### Client Side
 
@@ -78,7 +78,7 @@ function getWeatherReport(object = { city: 'London, GB' }) {
 }
 ```
 
-### Server Side
+#### Server Side
 
 ```javascript
 app.post('/weather', (request, response) => {
