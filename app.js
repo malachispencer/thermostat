@@ -26,8 +26,7 @@ app.post('/weather', (request, response) => {
     url: url + units + token
   })
     .then(res => {
-      let data = res.data.main.temp.toString();
-      response.send(data);
+      response.send(res.data.main);
     })
     .catch(err => {
       console.log(err);

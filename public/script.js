@@ -16,7 +16,14 @@ $(document).ready(function() {
       data: object
     })
     .done(data => {
-      console.log(data);
+      let temp = formatTemperature(data.temp);
+      let feelsLike = formatTemperature(data.feels_like);
+      let humidity = formatHumidity(data.humidity);
+
+      $('#city').html(object.city);
+      $('#weather').html(`Weather: ${temp}`);
+      $('#feels-like').html(`Feels Like: ${feelsLike}`);
+      $('#humidity').html(`Humidity: ${humidity}`);
     })
   });
 
@@ -52,5 +59,13 @@ $(document).ready(function() {
 
   function displayCurrentEnergyUsage() {
     $('#current-usage').html(`Energy Usage: ${thermostat.getCurrentEnergyUsage()}`);
+  }
+
+  function formatTemperature(temperature) {
+    return `${Math.round(temperature)}°C`;
+  }
+
+  function formatHumidity(humidity) {
+    return `${humidity}%`;
   }
 });
