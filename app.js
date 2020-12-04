@@ -16,23 +16,6 @@ app.get('/', (request, response) => {
   response.sendFile(__dirname + '/public/index.html');
 });
 
-// app.post('/weather', (request, response) => {
-//   const url = `http://api.openweathermap.org/data/2.5/weather?q=${request.body.city}`;
-//   const units = '&units=metric';
-//   const token = `&appid=${process.env.OPEN_WEATHER_MAP_KEY}`;
-
-//   axios({
-//     method: 'get',
-//     url: url + units + token
-//   })
-//     .then(res => {
-//       response.send(res.data.main);
-//     })
-//     .catch(err => {
-//       console.log(err);
-//     });
-// });
-
 app.get('/weather/:city', (request, response) => {
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${request.params.city}`;
   const units = '&units=metric';
