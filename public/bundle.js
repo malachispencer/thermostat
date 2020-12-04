@@ -10882,24 +10882,11 @@ $(document).ready(function() {
   updateTemperature();
   displayCurrentMode();
   displayCurrentEnergyUsage();
+  getWeatherReport();
 
   $('input:radio[name=weather-location]').change((e) => {
     const object = { city: e.target.value }
-
-    $.ajax('/weather', {
-      method: 'POST',
-      data: object
-    })
-    .done(data => {
-      let temp = formatTemperature(data.temp);
-      let feelsLike = formatTemperature(data.feels_like);
-      let humidity = formatHumidity(data.humidity);
-
-      $('#city').html(object.city);
-      $('#weather').html(`Weather: ${temp}`);
-      $('#feels-like').html(`Feels Like: ${feelsLike}`);
-      $('#humidity').html(`Humidity: ${humidity}`);
-    })
+    getWeatherReport(object);
   });
 
   $('#increase-temp-btn').click(() => {
@@ -10918,7 +10905,7 @@ $(document).ready(function() {
     thermostat.togglePowerSaving();
   });
 
-  $(window).click(() => {
+  $('button').click(() => {
     updateTemperature();
     displayCurrentMode();
     displayCurrentEnergyUsage();
@@ -10942,6 +10929,25 @@ $(document).ready(function() {
 
   function formatHumidity(humidity) {
     return `${humidity}%`;
+  }
+
+  function getWeatherReport(object = { city: 'London, GB' }) {
+    
+    $.ajax('/weather', {
+      method: 'POST',
+      data: object
+    })
+    .done(data => {
+      let temp = formatTemperature(data.temp);
+      let feelsLike = formatTemperature(data.feels_like);
+      let humidity = formatHumidity(data.humidity);
+
+      $('#city').html(object.city);
+      $('#weather').html(`Weather: ${temp}`);
+      $('#feels-like').html(`Feels Like: ${feelsLike}`);
+      $('#humidity').html(`Humidity: ${humidity}`);
+    })
+
   }
 });
 },{"../src/thermostat.js":3,"jquery":1}],3:[function(require,module,exports){
