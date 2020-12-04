@@ -10885,8 +10885,7 @@ $(document).ready(function() {
   getWeatherReport();
 
   $('input:radio[name=weather-location]').change((e) => {
-    const object = { city: e.target.value }
-    getWeatherReport(object);
+    getWeatherReport(e.target.value);
   });
 
   $('#increase-temp-btn').click(() => {
@@ -10931,23 +10930,20 @@ $(document).ready(function() {
     return `${humidity}%`;
   }
 
-  function getWeatherReport(object = { city: 'London, GB' }) {
-    
-    $.ajax('/weather', {
-      method: 'POST',
-      data: object
+  function getWeatherReport(city = 'London, GB') {
+    $.ajax(`/weather/${city}`, {
+      method: 'get'
     })
     .done(data => {
       let temp = formatTemperature(data.temp);
       let feelsLike = formatTemperature(data.feels_like);
       let humidity = formatHumidity(data.humidity);
 
-      $('#city').html(object.city);
-      $('#weather').html(`Weather: ${temp}`);
+      $('#city').html(city);
+      $('#weather').html(`Temperature: ${temp}`);
       $('#feels-like').html(`Feels Like: ${feelsLike}`);
       $('#humidity').html(`Humidity: ${humidity}`);
     })
-
   }
 });
 },{"../src/thermostat.js":3,"jquery":1}],3:[function(require,module,exports){
